@@ -1,0 +1,18 @@
+<header class="app-header">
+  <nav class="navbar">
+    <div class="logo-container" routerLink="/">
+      <span class="logo-icon">💎</span>
+      <span class="app-name">Angular Crypto</span>
+    </div>
+    <div class="links">
+      <a routerLink="/" routerLinkActive="active">Home</a>
+
+      <a routerLink="/favorites" routerLinkActive="active">Favorites ❤️</a>
+    </div>
+  </nav>
+  <select class="currency-select" (change)="changeCurrency($event)">
+    <option value="usd">USD ($)</option>
+    <option value="eur">EUR (€)</option>
+    <option value="uah">UAH (₴)</option>
+  </select>
+</header>

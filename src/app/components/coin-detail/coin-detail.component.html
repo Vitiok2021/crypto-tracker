@@ -1,0 +1,88 @@
+<div class="coin-detail" *ngIf="coin">
+  <header class="coin-header">
+    <img [src]="coin?.image?.large" [alt]="coin?.name" class="logo" />
+
+    <div class="title-section">
+      <h1>{{ coin?.name }}</h1>
+      <span class="symbol">{{ coin?.symbol | uppercase }}</span>
+      <span class="rank">Rank #{{ coin?.market_data?.market_cap_rank }}</span>
+    </div>
+    <button
+      class="fav-btn"
+      [class.active]="isFavorite"
+      (click)="toggleLike($event)"
+    >
+      ♥
+    </button>
+  </header>
+
+  <section class="price-section">
+    <div class="current-price">
+      {{
+        $any(coin?.market_data?.current_price)[cryptoService.selectedCurrency()]
+          | currency: currencyCode() : "symbol"
+      }}
+    </div>
+
+    <div
+      class="change-tag"
+      [class.up]="(coin?.market_data?.price_change_percentage_24h ?? 0) > 0"
+      [class.down]="(coin?.market_data?.price_change_percentage_24h ?? 0) < 0"
+    >
+      {{ (coin?.market_data?.price_change_percentage_24h ?? 0) > 0 ? "+" : "" }}
+      {{ coin?.market_data?.price_change_percentage_24h | number: "1.2-2" }}%
+    </div>
+  </section>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="label">Market Cap</span>
+      <span class="value">{{
+        $any(coin?.market_data?.market_cap)[cryptoService.selectedCurrency()]
+          | currency: currencyCode() : "symbol" : "1.0-0"
+      }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="label">Volume (24h)</span>
+      <span class="value">{{
+        $any(coin?.market_data?.total_volume)[cryptoService.selectedCurrency()]
+          | currency: currencyCode() : "symbol" : "1.0-0"
+      }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="label">Low 24h</span>
+      <span class="value text-red">{{
+        $any(coin?.market_data?.low_24h)[cryptoService.selectedCurrency()]
+          | currency: currencyCode() : "symbol"
+      }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="label">High 24h</span>
+      <span class="value text-green">{{
+        $any(coin?.market_data?.high_24h)[cryptoService.selectedCurrency()]
+          | currency: currencyCode() : "symbol"
+      }}</span>
+    </div>
+  </div>
+
+  <section class="description">
+    <h3>About {{ coin?.name }}</h3>
+    <p [innerHTML]="coin?.description?.en"></p>
+  </section>
+
+  <div style="display: block">
+    <canvas
+      baseChart
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [type]="lineChartType"
+    >
+    </canvas>
+  </div>
+  <a routerLink="/" class="back-btn">← Back to list</a>
+</div>
+
+<div *ngIf="!coin" class="loading">Loading details...</div>

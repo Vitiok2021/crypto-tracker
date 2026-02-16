@@ -1,0 +1,80 @@
+.app-header {
+  background-color: #333333; /* Дуже темний фон */
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Центруємо по вертикалі */
+  padding: 0 2rem;
+  border-bottom: 1px solid #333; /* Тонка лінія знизу */
+  position: sticky; /* Липне до верху при скролі */
+  top: 0;
+  z-index: 1000; /* Щоб був поверх всього */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+  border-radius: 10px;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer; /* Курсор-рука */
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8; /* Ефект при наведенні */
+    }
+  }
+
+  .logo-icon {
+    font-size: 1.8rem;
+  }
+
+  .app-name {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    /* Градієнтний текст (бонус) */
+    background: linear-gradient(45deg, #bb86fc, #9c27b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  a {
+    text-decoration: none;
+    color: #fff;
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.currency-select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #2b2b2b;
+  color: white;
+  margin-left: 15px;
+
+  // 👇 ДОДАЙ ЦЕ:
+  cursor: pointer; // Курсор-рука
+  transition: all 0.3s ease; // Плавна анімація
+
+  &:hover {
+    border-color: #ffd700; // Золота рамка при наведенні
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); // Легке світіння
+    transform: scale(1.05); // Ледь помітне збільшення
+  }
+
+  &:focus {
+    outline: none;
+    border-color: orange;
+  }
+}

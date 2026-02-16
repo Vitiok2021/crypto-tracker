@@ -1,0 +1,101 @@
+.card-wrapper {
+  background: #242323;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  min-height: 100px; // Трохи зменшив, 130 було забагато
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: #bb86fc;
+    background: #252525;
+  }
+
+  .coin-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .info {
+    flex-grow: 1;
+
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .symbol {
+        color: #777;
+        font-size: 0.85rem;
+      }
+    }
+
+    .price-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+
+      .price {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #e0e0e0;
+      }
+    }
+  }
+
+  // Кольори тепер правильні!
+  .change {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+
+    &.up {
+      color: #4caf50; // Зелений на ріст
+      background: rgba(76, 175, 80, 0.1);
+    }
+
+    &.down {
+      color: #f44336; // Червоний на падіння
+      background: rgba(244, 67, 54, 0.1);
+    }
+  }
+}
+.card-wrapper {
+  position: relative; // ⚠️ Це обов'язково, щоб кнопка не втекла!
+  // ... твої старі стилі (display: flex, etc) ...
+}
+
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #ccc; // Сірий колір (неактивний)
+  transition: transform 0.2s;
+  z-index: 10; // Щоб була поверх усього
+
+  &:hover {
+    transform: scale(1.2); // Трохи збільшується при наведенні
+  }
+
+  &.active {
+    color: #ff4081; // 🔴 Червоний, коли лайкнули!
+  }
+}

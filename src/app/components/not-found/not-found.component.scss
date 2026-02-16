@@ -1,0 +1,42 @@
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh; // На весь екран по висоті
+  text-align: center;
+  color: white;
+
+  h1 {
+    font-size: 8rem; // Гігантські цифри
+    margin: 0;
+    color: #ffd700; // Золотий колір
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); // Світіння
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #aaa;
+    margin-bottom: 30px;
+  }
+
+  .home-btn {
+    background: #ffd700;
+    color: #222;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none; // Прибрати підкреслення
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05); // Збільшення при наведенні
+      background: white;
+    }
+  }
+}

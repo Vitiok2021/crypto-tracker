@@ -1,0 +1,77 @@
+.favorites-container {
+  padding: 20px;
+  display: flex; // Додаємо флекс для всього контейнера
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+
+  h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .empty {
+    text-align: center;
+    color: #888;
+    font-size: 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 20px; // Відступ до кнопки
+  }
+
+  .back-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #3f51b5; // Приємний синій колір
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition:
+      background-color 0.3s,
+      transform 0.2s;
+
+    &:hover {
+      background-color: #303f9f;
+      transform: translateY(-2px); // Ефект підстрибування
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .coin-grid {
+    width: 100%; // Щоб сітка займала всю ширину
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 15px; // Відступ між крутилкою і текстом
+
+  span {
+    color: #181716; // Золотий колір тексту
+    font-size: 1.1rem;
+    font-weight: 500;
+    animation: pulse 1.5s infinite; // Текст буде "дихати"
+  }
+}
+
+// Сама крутилка
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.5); // Напівпрозоре коло
+  border-top-color: #22211f; // Золота "шапка", яка крутиться
+  border-radius: 50%; // Робимо круглим
+  animation: spin 1s linear infinite; // Запуск анімації
+}

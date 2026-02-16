@@ -1,0 +1,162 @@
+.coin-detail {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  .coin-header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .logo {
+      width: 80px;
+      height: 80px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .symbol {
+      color: #888;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .rank {
+      background: #333;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-left: 10px;
+      color: #ccc;
+    }
+  }
+
+  .price-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #333;
+
+    .current-price {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .change-tag {
+      font-size: 1.2rem;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+
+      &.up {
+        color: #4caf50;
+        background: rgba(76, 175, 80, 0.1);
+      }
+      &.down {
+        color: #f44336;
+        background: rgba(244, 67, 54, 0.1);
+      }
+    }
+  }
+
+  .description {
+    line-height: 1.6;
+    color: #ddd;
+
+    // Стилі для посилань всередині тексту опису (який приходить з сервера)
+    ::ng-deep a {
+      color: #bb86fc;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .back-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.loading {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 1.5rem;
+  color: #777;
+}
+.stats-grid {
+  display: grid;
+  // Автоматична сітка: адаптується під екран
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .stat-card {
+    background: #252525; // Трохи світліше за фон
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .label {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .value {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #eee;
+    }
+
+    .text-green {
+      color: #4caf50;
+    }
+    .text-red {
+      color: #f44336;
+    }
+  }
+}
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background: none;
+  border: none;
+  font-size: 46px;
+  cursor: pointer;
+  color: #ccc; // Сірий колір (неактивний)
+  transition: all 0.3s;
+  z-index: 10; // Щоб була поверх усього
+
+  &:hover {
+    transform: scale(1.2); // Трохи збільшується при наведенні
+  }
+
+  &.active {
+    color: #ff4081; // 🔴 Червоний, коли лайкнули!
+  }
+}

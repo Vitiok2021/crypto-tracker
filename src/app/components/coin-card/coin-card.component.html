@@ -1,0 +1,31 @@
+<div class="card-wrapper" [routerLink]="['/coin', coin.id]">
+  <button
+    class="fav-btn"
+    [class.active]="isFavorite"
+    (click)="toggleLike($event)"
+  >
+    ♥
+  </button>
+  <img [src]="coin.image" [alt]="coin.name" class="coin-logo" />
+
+  <div class="info">
+    <h3>
+      {{ coin.name }} <span class="symbol">{{ coin.symbol | uppercase }}</span>
+    </h3>
+
+    <div class="price-info">
+      <p class="price">
+        {{ coin.current_price | currency: currencyCode() : "symbol" }}
+      </p>
+
+      <span
+        class="change"
+        [class.up]="coin.price_change_percentage_24h > 0"
+        [class.down]="coin.price_change_percentage_24h < 0"
+      >
+        {{ coin.price_change_percentage_24h > 0 ? "+" : ""
+        }}{{ coin.price_change_percentage_24h | number: "1.2-2" }}%
+      </span>
+    </div>
+  </div>
+</div>

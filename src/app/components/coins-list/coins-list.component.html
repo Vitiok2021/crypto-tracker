@@ -1,0 +1,29 @@
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Пошук..."
+    [(ngModel)]="searchText"
+    (input)="handleSearch()"
+  />
+</div>
+@if (errorMessage) {
+  <div class="message-error">
+    <p>{{ errorMessage }}</p>
+  </div>
+} @else if (isLoading) {
+  <div class="loader-container">
+    <div class="spinner"></div>
+    <span>Завантажуємо крипту...</span>
+  </div>
+} @else {
+  <div class="grid">
+    @for (coin of filteredCoins; track coin.id) {
+      <app-coin-card [coin]="coin"></app-coin-card>
+    }
+  </div>
+}
+@if (!searchText && !isLoading) {
+  <div class="load-more-container">
+    <button (click)="loadMore()" class="btn-load-more">Load More Coins</button>
+  </div>
+}

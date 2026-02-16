@@ -1,0 +1,21 @@
+<div class="favorites-container">
+  <h2>My Favorite Coins ❤️</h2>
+  @if (isLoading) {
+    <div class="loader-container">
+      <div class="spinner"></div>
+      <span>Завантажуємо крипту...</span>
+    </div>
+  } @else if (coins.length === 0 && !isLoading) {
+    <p class="empty">Ви ще нічого не додали... 😢</p>
+    <a routerLink="/" class="back-link">Переглянути монети</a>
+  } @else {
+    <div class="coin-grid">
+      @for (coin of coins; track coin.id) {
+        <app-coin-card
+          [coin]="coin"
+          (remove)="removeCoin($event)"
+        ></app-coin-card>
+      }
+    </div>
+  }
+</div>
